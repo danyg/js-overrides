@@ -1,7 +1,7 @@
 # js-overrides
 Collection of Javascript Overrides for webs to be used with Chrome extension Custom Javascript for Websites 2
 
-#HOW TO
+# HOW TO
 ## Option One
 Copy content of file, open CJS on the wanted domain and paste the content, save and enjoy
 

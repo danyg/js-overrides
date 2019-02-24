@@ -8,7 +8,7 @@
 	const videoSelector = '.html5-main-video';
 	const videoPlayerAPISelector = '.html5-video-player';
 	const containerSelector = '.html5-video-container';
-	const CV_STYLE = `
+	let CV_STYLE = `
 	#masthead-container { opacity: 0; transition: opacity ${TRANS_TIME}ms !important; }
 	.custom-volume--normal #masthead-container,
 	#masthead-container:hover{ opacity:1; }
@@ -32,11 +32,15 @@
 		top: 10px;
 		z-index: 20000
 	}
+	.is-hidden {display:none !important;}
 	/* SCROLL BAR */
 	:not([hide-scrollbar]) ::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); background-color: #222; }
 	:not([hide-scrollbar]) ::-webkit-scrollbar { width: 6px; }
 	:not([hide-scrollbar]) ::-webkit-scrollbar-thumb { background-color: #444; }
 	`;
+	if (_OVERRIDE_OPTIONS.POST_VIDEO_ELEMENTS_REMOVED) {
+		CV_STYLE += '.ytp-ce-element { display: none !important; }';
+	}
 
 	const isOn = (bit) => (data) => (bit & data) === bit;
 	const isLeftButtonOn = isOn(LEFT_BUTTON);
@@ -88,15 +92,22 @@
 		checkReadyState();
 	}
 
-	const addHeaderBehaviour = () => {
+	const addMouseShortcutsBehaviour = () => {
 		let prevent = false;
+		const preventIt = (e) => {
+			prevent = true;
+			e.preventDefault();
+			return false;
+		}
 		document.addEventListener('mousedown', (e) => {
 			if(isLeftButtonOn(e.buttons) && isWheelButtonOn(e.buttons)) {
 				const pm = document.body;
 				classToggle(pm)('custom-volume--normal');
-				prevent = true;
-				e.preventDefault();
-				return false;
+				preventIt(e);
+			}
+			if(isLeftButtonOn(e.buttons) && isRightButtonOn(e.buttons)) {
+				document.querySelectorAll('.ytp-ce-element').forEach((el) => classToggle(el)('is-hidden'))
+				preventIt(e);
 			}
 		 });
 		 document.addEventListener('mouseup', (e) => {
@@ -122,7 +133,7 @@
 		let osdTimer;
 		const writeOSD = osdWriter({osd, osdTimer});
 
-		addHeaderBehaviour();
+		addMouseShortcutsBehaviour();
 
 		video().style.left = 'initial';
 

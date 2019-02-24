@@ -18,5 +18,5 @@ Keep it updated
 })();
 ```
 The `URL` in line 2 could be:
-https://cdn.jsdelivr.net/gh/danyg/js-overrides/youtube.js
-https://cdn.jsdelivr.net/gh/danyg/js-overrides/google-dark.js
+- https://cdn.jsdelivr.net/gh/danyg/js-overrides/youtube.js
+- https://cdn.jsdelivr.net/gh/danyg/js-overrides/google-dark.js

@@ -15,7 +15,7 @@
 	${TOPLAYER} { margin-top: 0px !important; transition: margin 333ms; }
 	.custom-volume--normal ${TOPLAYER} { margin-top: 56px !important; }
 	.html5-video-container { height: 100%; }
-	ytd-watch-flexy[theater] #player-theater-container.ytd-watch-flexy, ytd-watch-flexy[fullscreen] #player-theater-container.ytd-watch-flexy { height: 100vh !important; max-height: 100vh; }
+	ytd-watch-flexy[theater] #player-theater-container.ytd-watch-flexy, ytd-watch-flexy[fullscreen] #player-theater-container.ytd-watch-flexy { height: 100vh !important; max-height: 100vh; min-height: 10px !important; }
 	.html5-video-container video { left: initial !important; width: 100% !important; height: 100% !important; top: 0 !important;}
 	.ytp-gradient-bottom {opacity: 0 !important;}
 	.ytp-gradient-top {opacity: 0 !important;}

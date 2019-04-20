@@ -143,7 +143,10 @@
 			try {
 				ytVol = parseInt(JSON.parse(JSON.parse(localStorage.getItem('yt-player-volume')).data).volume);
 			} catch(e){}
-			cVVol = parseInt(localStorage.getItem('#customVol'));
+			if (localStorage.hasOwnProperty('#customVol')) {
+				const customVol = localStorage.getItem('#customVol');
+				cVVol = parseInt(localStorage.getItem('#customVol'));
+			}
 			let vol = 50;
 			if (ytVol !== null && ytVol !== cVVol) {
 				vol = ytVol;

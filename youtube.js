@@ -38,7 +38,7 @@
 	:not([hide-scrollbar]) ::-webkit-scrollbar { width: 6px; }
 	:not([hide-scrollbar]) ::-webkit-scrollbar-thumb { background-color: #444; }
 	`;
-	if (_OVERRIDE_OPTIONS.POST_VIDEO_ELEMENTS_REMOVED) {
+	if (window._OVERRIDE_OPTIONS && window._OVERRIDE_OPTIONS.POST_VIDEO_ELEMENTS_REMOVED) {
 		CV_STYLE += '.ytp-ce-element { display: none !important; }';
 	}
 
@@ -155,8 +155,10 @@
 
 		const saveYtVol = (v) => {
 			let base = localStorage.getItem('yt-player-volume');
-			base = base.replace(/volume\\":(\d+),/, `volume\\":${v},`);
-			localStorage.setItem('yt-player-volume', base);
+			if (base) {
+				base = base.replace(/volume\\":(\d+),/, `volume\\":${v},`);
+				localStorage.setItem('yt-player-volume', base);
+			}
 		}
 		const setVolume = (v, showIt) => {
 			showIt = showIt === undefined ? true : showIt;

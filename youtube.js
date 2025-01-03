@@ -9,15 +9,16 @@
 	const videoPlayerAPISelector = '.html5-video-player';
 	const containerSelector = '.html5-video-container';
 	let CV_STYLE = `
-	#masthead-container { opacity: 0; transition: opacity ${TRANS_TIME}ms !important; }
-	.custom-volume--normal #masthead-container,
-	#masthead-container:hover{ opacity:1; }
-	${TOPLAYER} { margin-top: 0px !important; transition: margin 333ms; }
-	.custom-volume--normal ${TOPLAYER} { margin-top: 56px !important; }
-	.html5-video-container { height: 100%; }
-	ytd-watch-flexy[theater] #player-theater-container.ytd-watch-flexy, ytd-watch-flexy[fullscreen] #player-theater-container.ytd-watch-flexy { height: 100vh !important; max-height: 100vh; min-height: 10px !important; }
-	.html5-video-container video { left: initial !important; width: 100% !important; height: 100% !important; top: 0 !important;}
-	.ytp-gradient-bottom {opacity: 0 !important;}
+	html.dgYTCustomised #masthead-container { opacity: 0; transition: opacity ${TRANS_TIME}ms !important; }
+	html.dgYTCustomised .custom-volume--normal #masthead-container,
+	html.dgYTCustomised #masthead-container:hover{ opacity:1; }
+	html.dgYTCustomised ${TOPLAYER} { margin-top: 0px !important; transition: margin 333ms; }
+	html.dgYTCustomised .custom-volume--normal ${TOPLAYER} { margin-top: 56px !important; }
+	html.dgYTCustomised .html5-video-container { height: 100%; }
+	html.dgYTCustomised ytd-watch-flexy[theater] #player-theater-container.ytd-watch-flexy, ytd-watch-flexy[fullscreen] #player-theater-container.ytd-watch-flexy { height: 100vh !important; max-height: 100vh; min-height: 10px !important; }
+	html.dgYTCustomised .html5-video-container video { left: initial !important; width: 100% !important; height: 100% !important; top: 0 !important;}
+	
+ 	.ytp-gradient-bottom {opacity: 0 !important;}
 	.ytp-gradient-top {opacity: 0 !important;}
 	.custom-vol__OSD {
 		position: absolute;

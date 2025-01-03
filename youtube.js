@@ -121,10 +121,12 @@
 
 	// SCRIPT INIT
 	addStyle(CV_STYLE);
-	onReady(() => {
+	const start = () => {
 		const video = () => document.querySelector(videoSelector);
 		const videoPlayerApi = () => document.querySelector(videoPlayerAPISelector);
 		const container = document.querySelector(containerSelector);
+
+    if (!video || !videoPlayerApi || !container) return setTimeout(start, 100);
 
 		// OSD Init
 		const osd = document.createElement('div');
@@ -184,5 +186,6 @@
 		setVolume(getVolume());
 
 		window.scroll(0,0);
-	});
+	};
+	onReady(start);
 })();
